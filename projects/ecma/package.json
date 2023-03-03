@@ -1,0 +1,15 @@
+{
+  "name": "da150x-ecma",
+  "version": "1.0.0",
+  "description": "",
+  "main": "build/lib.js",
+  "scripts": {
+    "build": "tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^4.9.5"
+  }
+}

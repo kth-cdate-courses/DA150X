@@ -1,0 +1,19 @@
+{
+  "name": "project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "build/index.js",
+  "scripts": {
+    "start": "node build/index.js",
+    "watch": "tsc --watch"
+  },
+  "author": "Edvin Nordqvist, Hampus Hallkvist",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^4.9.5"
+  },
+  "dependencies": {
+    "da150x-ecma": "link:projects/ecma",
+    "da150x-wasm": "link:projects/wasm/pkg"
+  }
+}
