@@ -3,9 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "build/index.js",
+  "type": "module",
   "scripts": {
     "start": "node build/index.js",
-    "watch": "tsc --watch"
+    "watch": "tsc --watch",
+    "build": "tsc"
   },
   "author": "Edvin Nordqvist, Hampus Hallkvist",
   "license": "ISC",

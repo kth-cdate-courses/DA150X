@@ -1,13 +1,14 @@
 {
-  "name": "da150x-ecma",
+  "name": "wasm",
   "version": "1.0.0",
   "description": "",
-  "main": "build/lib.js",
+  "main": "./pkg/index.js",
   "type": "module",
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
