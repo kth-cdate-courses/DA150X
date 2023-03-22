@@ -17,5 +17,6 @@ Install submodules:
 
 ## Running
 
+0. Once per session run `just source`, copy the command and run it in your shell. This will link the emsdk to your shell.
 1. Build system `just build`
 2. Run `just start`

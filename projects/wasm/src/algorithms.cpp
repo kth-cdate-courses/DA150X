@@ -1,6 +1,6 @@
 #include <emscripten.h>
 
-// Type mangling
+// Name mangling
 extern "C"
 {
 
