@@ -15,7 +15,7 @@
     "typescript": "^4.9.5"
   },
   "dependencies": {
-    "da150x-ecma": "link:projects/ecma",
-    "da150x-wasm": "link:projects/wasm/pkg"
+    "da150x-ecma": "file:projects/ecma",
+    "wasm": "file:projects/wasm"
   }
 }

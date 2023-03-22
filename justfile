@@ -1,8 +1,9 @@
+set shell := ["bash", "-c"]
 build:
 	just build-ecma
 	just build-wasm-cpp
 	rm -rf build
-	nr build
+	pnpm build
 	
 source:
 	echo "source ./projects/emsdk/emsdk_env.sh"
@@ -24,4 +25,4 @@ build-wasm-cpp:
 	cd ./projects/wasm && npm run build && cp ./build/lib/* ./pkg && cd ../../
 
 start:
-	nr start
+	pnpm run start
