@@ -1,13 +1,13 @@
 lockfileVersion: 5.4
 
 specifiers:
-  da150x-ecma: file:projects/ecma
+  da150x-ecma: link:projects/ecma
   typescript: ^4.9.5
-  wasm: file:projects/wasm
+  wasm: link:projects/wasm-cpp
 
 dependencies:
   da150x-ecma: file:projects/ecma
-  wasm: file:projects/wasm
+  wasm: link:projects/wasm-cpp
 
 devDependencies:
   typescript: 4.9.5
@@ -23,11 +23,5 @@ packages:
   file:projects/ecma:
     resolution: {directory: projects/ecma, type: directory}
     name: da150x-ecma
-    version: 1.0.0
-    dev: false
-
-  file:projects/wasm:
-    resolution: {directory: projects/wasm, type: directory}
-    name: wasm
     version: 1.0.0
     dev: false
