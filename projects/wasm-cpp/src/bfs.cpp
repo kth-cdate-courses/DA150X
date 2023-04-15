@@ -37,7 +37,7 @@ int common_rand()
 ////////////////////////////////////////////////////////////////////////////////
 // Apply BFS on a Graph using CUDA
 ////////////////////////////////////////////////////////////////////////////////
-void BFSGraph(int argc, char **argv)
+int BFSGraph(int argc, char **argv)
 {
 	unsigned int expected_no_of_nodes = 3000000;
 	unsigned long int expected_total_cost = 26321966;
@@ -154,8 +154,10 @@ void BFSGraph(int argc, char **argv)
 	free(h_graph_visited);
 	free(h_cost);
 
-/* 	fprintf(stdout, "{\"options\": \"%d\", \"time\": %f, \"status\": %d}\n", no_of_nodes, get_interval_by_sec(&sw1), 1);
- */}
+	// fprintf(stdout, "{\"options\": \"%d\", \"time\": %f, \"status\": %d}\n", no_of_nodes, get_interval_by_sec(&sw1), 1);
+
+	return get_interval_by_usec(&sw1) / 1000;
+}
 
 void InitializeGraph(
 	Node **h_graph_nodes,

@@ -102,17 +102,17 @@ function printMatrix(matrix: Float64Array) {
     for (var j = 0; j < size; ++j) {
       row.push(matrix[i * size + j])
     }
-    console.log(row.join(" "))
+    /*     console.log(row.join(" ")) */
   }
 }
 
 function randomMatrix(matrix: Float64Array) {
   var size = Math.sqrt(matrix.length)
-  console.log("Creating temp array of size " + size)
+  /*   console.log("Creating temp array of size " + size) */
   var l = new Float64Array(matrix.length)
   var u = new Float64Array(matrix.length)
 
-  console.log("Creating l matrix")
+  /*   console.log("Creating l matrix") */
   for (var i = 0; i < size; ++i) {
     for (var j = 0; j < size; ++j) {
       if (i > j) {
@@ -124,7 +124,7 @@ function randomMatrix(matrix: Float64Array) {
       }
     }
   }
-  console.log("Creating u matrix")
+  /*   console.log("Creating u matrix") */
   for (var j = 0; j < size; ++j) {
     for (var i = 0; i < size; ++i) {
       if (i > j) {
@@ -134,7 +134,7 @@ function randomMatrix(matrix: Float64Array) {
       }
     }
   }
-  console.log("Creating input matrix")
+  /*   console.log("Creating input matrix") */
   for (var i = 0; i < size; ++i) {
     for (var j = 0; j < size; ++j) {
       var sum = 0
@@ -199,16 +199,16 @@ function ludVerify(m: Float64Array, lu: Float64Array) {
       }
     }
   }
-  console.log(
+  /*   console.log(
     "For all practical purposes, the original matrix and the one computed from the LUD are identical"
-  )
+  ) */
 }
 
 export function ludRun(size: number) {
   let doVerify = false
   doVerify = doVerify === undefined ? false : doVerify
   var matrix = new Float64Array(size * size)
-  console.log("Creating random matrix")
+  /*   console.log("Creating random matrix") */
   randomMatrix(matrix)
 
   let original: Float64Array | undefined = undefined
@@ -243,13 +243,13 @@ export function ludRun(size: number) {
       }
     }
   } else {
-    console.log("WARNING: No self-checking step for dimension '" + size + "'")
+    /*     console.log("WARNING: No self-checking step for dimension '" + size + "'") */
   }
 
   /* if (doVerify) {
     ludVerify(original!, matrix)
   } */
 
-  console.log("Time consumed untyped (s): " + (t2 - t1).toFixed(6))
+  /*   console.log("Time consumed untyped (s): " + (t2 - t1).toFixed(6)) */
   return { status: 1, options: "ludRun(" + size + ")", time: t2 - t1 }
 }

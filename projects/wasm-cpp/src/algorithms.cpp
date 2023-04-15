@@ -1,6 +1,8 @@
 #include <emscripten.h>
-#include "algorithms.h"
 #include <chrono>
+#include <iostream>
+
+#include "algorithms.h"
 
 // Name mangling
 extern "C"
@@ -17,12 +19,21 @@ extern "C"
 
 	int cppBfs(int nodes)
 	{
-		// Start time for chrono
-		auto start = std::chrono::high_resolution_clock::now();
-		char *argv = {"40000"};
-		BFSGraph(1, &argv);
-		// Get duration in milliseconds
-		auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::high_resolution_clock::now() - start);
-		return duration.count();
+		char argv[10];
+		sprintf(argv, "%d", nodes);
+		return BFSGraph(1, (char **)&argv);
+	}
+
+	int cppLud(int matrix_dim)
+	{
+		char temp[10];
+		sprintf(temp, "%d", matrix_dim);
+		// Combine argv with -a flag
+		char *argv[] = {" ", "-s", temp};
+
+		// Calculate argc from argv
+		int argc = sizeof(argv) / sizeof(argv[0]);
+
+		return lud(argc, (char **)argv);
 	}
 }

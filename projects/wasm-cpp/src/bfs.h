@@ -1,4 +1,5 @@
-#ifndef COMMON_RAND_H
+#ifndef COMMON_RAND_H_A
+#define COMMON_RAND_H_A
 
 #include <stdio.h>
 #include <string.h>
@@ -7,7 +8,7 @@
 #include <limits.h>
 #include <vector>
 
-#include "./common.h"
+#include "common.h"
 
 using namespace std;
 
@@ -25,9 +26,7 @@ struct edge
 	unsigned weight;
 };
 
-void BFSGraph(int argc, char **argv);
+int BFSGraph(int argc, char **argv);
 void InitializeGraph(Node **, bool **, bool **, bool **, int **, int **, int);
 
 #endif // COMMON_RAND_H
-
-#define COMMON_RAND_H

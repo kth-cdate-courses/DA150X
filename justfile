@@ -21,8 +21,12 @@ build-wasm-cpp:
 	rm -rf ./projects/wasm-cpp/pkg && \
 	rm -rf ./projects/wasm-cpp/build && \
 	mkdir ./projects/wasm-cpp/pkg && \
-	emcc ./projects/wasm-cpp/src/algorithms.cpp ./projects/wasm-cpp/src/bfs.cpp ./projects/wasm-cpp/src/common.c -o ./projects/wasm-cpp/pkg/algorithms.mjs -s EXPORT_ES6=1 -s EXPORTED_FUNCTIONS="['_cppAdd','_cppBfs']" -s EXPORT_NAME=loadWASM -s EXPORTED_RUNTIME_METHODS=ccall,cwrap -s ALLOW_MEMORY_GROWTH && \
+	emcc ./projects/wasm-cpp/src/*.c ./projects/wasm-cpp/src/*.cpp -o ./projects/wasm-cpp/pkg/algorithms.mjs -s EXPORT_ES6=1 -s EXPORTED_FUNCTIONS="['_cppAdd','_cppBfs','_cppLud']" -s EXPORT_NAME=loadWASM -s EXPORTED_RUNTIME_METHODS=ccall,cwrap -s ALLOW_MEMORY_GROWTH -v && \
 	cd ./projects/wasm-cpp && npm run build && cp ./build/lib/* ./pkg && cd ../../
 
 start:
 	pnpm run start
+
+dev:
+	just build
+	just start
