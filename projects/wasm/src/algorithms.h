@@ -1,1 +1,0 @@
-int cppAdd(int a, int b);

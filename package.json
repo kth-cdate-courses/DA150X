@@ -16,6 +16,6 @@
   },
   "dependencies": {
     "da150x-ecma": "link:projects/ecma",
-    "da150x-wasm": "link:projects/wasm/pkg"
+    "wasm": "link:projects/wasm-cpp"
   }
 }

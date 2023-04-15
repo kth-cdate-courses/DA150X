@@ -2,7 +2,7 @@
   "name": "da150x-ecma",
   "version": "1.0.0",
   "description": "",
-  "main": "build/lib.js",
+  "main": "build/index.js",
   "type": "module",
   "scripts": {
     "build": "tsc"
