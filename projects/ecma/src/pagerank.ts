@@ -1811,7 +1811,7 @@ export function pageRank(
       }
     }
   } else {
-    console.log(
+    /* console.log(
       "WARNING: No self-checking for n = '" +
         n +
         "', iteration = '" +
@@ -1821,22 +1821,22 @@ export function pageRank(
         "', and divisor = '" +
         divisor +
         "'"
-    )
+    ) */
   }
 
-  console.log("T reached " + t + " at max dif " + max_diff + "\n")
+  /* console.log("T reached " + t + " at max dif " + max_diff + "\n") */
 
-  console.log(
+  /* console.log(
     "The total time taken for a random web of " +
       n +
       " pages is " +
       (t2 - t1) / 1000 +
       " seconds\n"
-  )
+  ) */
 
   return {
     status: 1,
     options: "runPageRank(" + [n, iter, thresh, divisor].join(",") + ")",
-    time: (t2 - t1) / 1000,
+    time: t2 - t1,
   }
 }

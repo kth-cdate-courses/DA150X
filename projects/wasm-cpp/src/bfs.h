@@ -1,5 +1,5 @@
-#ifndef COMMON_RAND_H_A
-#define COMMON_RAND_H_A
+#ifndef BFS_H
+#define BFS_H
 
 #include <stdio.h>
 #include <string.h>
@@ -8,6 +8,7 @@
 #include <limits.h>
 #include <vector>
 
+#include "common_rand.h"
 #include "common.h"
 
 using namespace std;
@@ -29,4 +30,4 @@ struct edge
 int BFSGraph(int argc, char **argv);
 void InitializeGraph(Node **, bool **, bool **, bool **, int **, int **, int);
 
-#endif // COMMON_RAND_H
+#endif // BFS_H

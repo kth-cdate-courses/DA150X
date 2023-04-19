@@ -1,9 +1,13 @@
 set shell := ["bash", "-c"]
+
+clean-local:
+	rm -rf build
+	pnpm build	
+
 build:
 	just build-ecma
 	just build-wasm-cpp
-	rm -rf build
-	pnpm build
+	just clean-local
 	
 source:
 	echo "source ./projects/emsdk/emsdk_env.sh"
@@ -21,12 +25,17 @@ build-wasm-cpp:
 	rm -rf ./projects/wasm-cpp/pkg && \
 	rm -rf ./projects/wasm-cpp/build && \
 	mkdir ./projects/wasm-cpp/pkg && \
-	emcc ./projects/wasm-cpp/src/*.c ./projects/wasm-cpp/src/*.cpp -o ./projects/wasm-cpp/pkg/algorithms.mjs -s EXPORT_ES6=1 -s EXPORTED_FUNCTIONS="['_cppAdd','_cppBfs','_cppLud']" -s EXPORT_NAME=loadWASM -s EXPORTED_RUNTIME_METHODS=ccall,cwrap -s ALLOW_MEMORY_GROWTH -v && \
+	emcc ./projects/wasm-cpp/src/*.c ./projects/wasm-cpp/src/*.cpp -o ./projects/wasm-cpp/pkg/algorithms.mjs -s EXPORT_ES6=1 -s EXPORTED_FUNCTIONS="['_cppAdd','_cppBfs','_cppLud','_cppPageRank']" -s EXPORT_NAME=loadWASM -s EXPORTED_RUNTIME_METHODS=ccall,cwrap -s ALLOW_MEMORY_GROWTH -v && \
 	cd ./projects/wasm-cpp && npm run build && cp ./build/lib/* ./pkg && cd ../../ && \
-	pnpm uninstall da150x-ecma && pnpm install ./projects/ecma
+	pnpm uninstall da150x-ecma && pnpm install ./projects/ecma && \
+	pnpm uninstall wasm && pnpm install ./projects/wasm-cpp
 
 start:
 	pnpm run start
+
+local:
+	just clean-local
+	just start
 
 dev:
 	just build

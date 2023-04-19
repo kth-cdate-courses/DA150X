@@ -3,11 +3,13 @@
 
 #include "./bfs.h"
 #include "./lud.h"
+#include "./pagerank.h"
 
 extern "C"
 {
 	int cppAdd(int a, int b);
 	int cppBfs(int nodes);
 	int cppLud(int matrix_dim);
+	int cppPageRank(int n);
 }
 #endif

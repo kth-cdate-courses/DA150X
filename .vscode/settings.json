@@ -82,6 +82,8 @@
     "valarray": "cpp",
     "variant": "cpp",
     "vector": "cpp",
-    "algorithm": "cpp"
+    "algorithm": "cpp",
+    "common_rand.h": "c",
+    "*.inc": "cpp"
   }
 }

@@ -4,7 +4,7 @@ import {
   bfs as ecmaBfs,
   pageRank as ecmaPageRank,
 } from "da150x-ecma"
-import { add, bfs as wasmBfs, lud as wasmLud } from "wasm"
+import { add, bfs as wasmBfs, lud as wasmLud, pageRank } from "wasm"
 
 function displayDiff(
   test: string,
@@ -20,6 +20,6 @@ function displayDiff(
   console.log("\n")
 }
 
-displayDiff("LUD", ecmaLudRun(1025).time, wasmLud(1025))
-displayDiff("BFS", ecmaBfs(4000000).time, wasmBfs(4000000))
-displayDiff("PageRank", ecmaPageRank().time, 0)
+/* displayDiff("LUD", ecmaLudRun(1025).time, wasmLud(1025))
+displayDiff("BFS", ecmaBfs(4000000).time, wasmBfs(4000000)) */
+displayDiff("PageRank", ecmaPageRank(10000).time, pageRank(10000))
