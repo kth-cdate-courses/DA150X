@@ -2,6 +2,7 @@ import {
   add as ecmaAdd,
   ludRun as ecmaLudRun,
   bfs as ecmaBfs,
+  pageRank as ecmaPageRank,
 } from "da150x-ecma"
 import { add, bfs as wasmBfs, lud as wasmLud } from "wasm"
 
@@ -21,3 +22,4 @@ function displayDiff(
 
 displayDiff("LUD", ecmaLudRun(1025).time, wasmLud(1025))
 displayDiff("BFS", ecmaBfs(4000000).time, wasmBfs(4000000))
+displayDiff("PageRank", ecmaPageRank().time, 0)

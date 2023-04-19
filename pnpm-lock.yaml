@@ -6,7 +6,7 @@ specifiers:
   wasm: link:projects/wasm-cpp
 
 dependencies:
-  da150x-ecma: file:projects/ecma
+  da150x-ecma: link:projects/ecma
   wasm: link:projects/wasm-cpp
 
 devDependencies:
@@ -19,9 +19,3 @@ packages:
     engines: {node: '>=4.2.0'}
     hasBin: true
     dev: true
-
-  file:projects/ecma:
-    resolution: {directory: projects/ecma, type: directory}
-    name: da150x-ecma
-    version: 1.0.0
-    dev: false
