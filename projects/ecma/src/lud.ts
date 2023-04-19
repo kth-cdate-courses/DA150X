@@ -251,5 +251,6 @@ export function ludRun(size: number) {
   } */
 
   /*   console.log("Time consumed untyped (s): " + (t2 - t1).toFixed(6)) */
-  return { status: 1, options: "ludRun(" + size + ")", time: t2 - t1 }
+  /*   return { status: 1, options: "ludRun(" + size + ")", time: t2 - t1 } */
+  return t2 - t1
 }

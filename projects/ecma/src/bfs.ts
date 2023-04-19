@@ -89,11 +89,12 @@ export function bfs(no_of_nodes: number, verbose?: boolean) {
     }
   }
 
-  return {
+  /* return {
     status: 1,
     options: "BFSGraph(" + no_of_nodes + ")",
     time: traversal_time, // Milliseconds
-  }
+  } */
+  return traversal_time
 }
 
 function InitializeGraph(no_of_nodes: number) {
