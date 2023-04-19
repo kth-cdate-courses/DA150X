@@ -3,6 +3,7 @@ import {
   ludRun as ecmaLudRun,
   bfs as ecmaBfs,
   pageRank as ecmaPageRank,
+  runCRC as ecmaCrc,
 } from "da150x-ecma"
 import {
   add,
@@ -80,8 +81,8 @@ displayDiff(
 )
 displayDiff(
   "CRC",
-  wrap(80000, [
-    { name: "ecma", func: () => 0 },
+  wrap(8000, [
+    { name: "ecma", func: ecmaCrc },
     { name: "C/C++ wasm", func: wasmCrc },
   ])
 )
