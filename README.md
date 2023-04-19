@@ -21,6 +21,6 @@ Install submodules:
 1. Build system `just build`
 2. Run `just start`
 
-# Credits
+### Credits
 
 Algorithms used in this project are derived from https://github.com/Sable/Ostrich
