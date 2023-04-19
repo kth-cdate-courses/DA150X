@@ -60,4 +60,8 @@ extern "C"
 
 		return pageRank(argc, (char **)argv);
 	}
+	int cppCrc(int pageSize)
+	{
+		return runCrc(pageSize, 1000);
+	}
 }

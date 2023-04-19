@@ -9,6 +9,7 @@ import {
   bfs as wasmBfs,
   lud as wasmLud,
   pageRank as wasmPageRank,
+  crc as wasmCrc,
 } from "wasm"
 
 interface WrappedResult {
@@ -75,5 +76,12 @@ displayDiff(
   wrap(10000, [
     { name: "ecma", func: ecmaPageRank },
     { name: "C/C++ wasm", func: wasmPageRank },
+  ])
+)
+displayDiff(
+  "CRC",
+  wrap(80000, [
+    { name: "ecma", func: () => 0 },
+    { name: "C/C++ wasm", func: wasmCrc },
   ])
 )

@@ -10,3 +10,4 @@ export const pageRank: (
   thresh?: number,
   divisor?: number */
 ) => number = wasm_module._cppPageRank
+export const crc: (pageSize?: number) => number = wasm_module._cppCrc
