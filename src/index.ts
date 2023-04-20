@@ -67,7 +67,7 @@ displayDiff(
 )
 displayDiff(
   "BFS",
-  wrap(1000, [
+  wrap(1048576, [
     { name: "ecma", func: ecmaBfs },
     { name: "C/C++ wasm", func: wasmBfs },
   ])
