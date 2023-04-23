@@ -8,6 +8,7 @@
 
 extern "C"
 {
+	int cppTrivial(int a);
 	int cppAdd(int a, int b);
 	int cppBfs(int nodes);
 	int cppLud(int matrix_dim);

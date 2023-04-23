@@ -3,6 +3,10 @@ export { bfs } from "./bfs.js"
 export { pageRank } from "./pagerank.js"
 export { runCRC } from "./crc.js"
 
+export function trivial(a: number): typeof a {
+  return a
+}
+
 export function add(a: number, b: number): number {
   return a + b
 }

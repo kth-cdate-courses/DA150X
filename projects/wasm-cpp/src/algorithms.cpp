@@ -8,6 +8,11 @@
 extern "C"
 {
 
+	int cppTrivial(int a)
+	{
+		return a;
+	}
+
 	int cppAdd(int a, int b)
 	{
 		int *pointer = new int;
