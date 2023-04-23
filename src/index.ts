@@ -12,77 +12,53 @@ import {
   pageRank as wasmPageRank,
   crc as wasmCrc,
 } from "wasm"
-
-interface WrappedResult {
-  name: string
-  actualTime: number
-  localTime: number
+import { cuda, displayDiff, gather, wrap } from "./utils.js"
+async function runBenchmarks() {
+  gather([
+    {
+      test: "LUD",
+      results: await wrap(
+        [1000],
+        [
+          { name: "ecma", func: ecmaLudRun },
+          { name: "C/C++ wasm", func: wasmLud },
+          {
+            name: "Cuda",
+            func: cuda("returner"),
+          },
+        ]
+      ),
+    },
+    {
+      test: "BFS",
+      results: await wrap(
+        [1048576 / 2, 1048576],
+        [
+          { name: "ecma", func: ecmaBfs },
+          { name: "C/C++ wasm", func: wasmBfs },
+        ]
+      ),
+    },
+    {
+      test: "PageRank",
+      results: await wrap(
+        [10000],
+        [
+          { name: "ecma", func: ecmaPageRank },
+          { name: "C/C++ wasm", func: wasmPageRank },
+        ]
+      ),
+    },
+    {
+      test: "CRC",
+      results: await wrap(
+        [8000],
+        [
+          { name: "ecma", func: ecmaCrc },
+          { name: "C/C++ wasm", func: wasmCrc },
+        ]
+      ),
+    },
+  ])
 }
-
-function wrap(
-  input: number,
-  tests: { name: string; func: (num: number) => number }[]
-): WrappedResult[] {
-  const results: WrappedResult[] = []
-  for (const test of tests) {
-    let innerResults: WrappedResult[] = []
-
-    const AVERAGES = 3
-    for (let i = 0; i < AVERAGES; i++) {
-      const start = performance.now()
-      const localTime = test.func(input)
-      const actualTime = performance.now() - start
-      innerResults.push({ name: test.name, actualTime, localTime })
-    }
-
-    // Get the average of the results
-    results.push({
-      name: test.name,
-      actualTime:
-        innerResults.reduce((total, current) => total + current.actualTime, 0) /
-        AVERAGES,
-      localTime:
-        innerResults.reduce((total, current) => total + current.localTime, 0) /
-        AVERAGES,
-    })
-  }
-  return results
-}
-
-function displayDiff(test: string, results: WrappedResult[]) {
-  console.log(`====== ${test} ======`)
-  for (const result of results) {
-    console.log(`[A] ${result.name}: ${Math.round(result.actualTime)}ms`)
-    console.log(`[L] ${result.name}: ${Math.round(result.localTime)}ms`)
-  }
-  console.log("\n")
-}
-
-displayDiff(
-  "LUD",
-  wrap(1000, [
-    { name: "ecma", func: ecmaLudRun },
-    { name: "C/C++ wasm", func: wasmLud },
-  ])
-)
-displayDiff(
-  "BFS",
-  wrap(1048576, [
-    { name: "ecma", func: ecmaBfs },
-    { name: "C/C++ wasm", func: wasmBfs },
-  ])
-)
-displayDiff(
-  "PageRank",
-  wrap(10000, [
-    { name: "ecma", func: ecmaPageRank },
-    { name: "C/C++ wasm", func: wasmPageRank },
-  ])
-)
-displayDiff(
-  "CRC",
-  wrap(8000, [
-    { name: "ecma", func: ecmaCrc },
-    { name: "C/C++ wasm", func: wasmCrc },
-  ])
-)
+runBenchmarks()
