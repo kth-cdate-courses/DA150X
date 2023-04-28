@@ -35,6 +35,7 @@ async function runBenchmarks() {
         [
           { name: "ecma", func: ecmaLudRun },
           { name: "C/C++ wasm", func: wasmLud },
+          { name: "Cuda", func: cuda("cuda/lud/cuda/lud_cuda") },
         ]
       ),
     },

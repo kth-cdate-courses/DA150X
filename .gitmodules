@@ -1,3 +1,6 @@
 [submodule "projects/emsdk"]
 	path = projects/emsdk
 	url = git@github.com:emscripten-core/emsdk.git
+[submodule "projects/gpu-rodinia"]
+	path = projects/gpu-rodinia
+	url = git@github.com:kth-cdate-courses/gpu-rodinia.git

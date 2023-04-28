@@ -68,10 +68,10 @@ export function cuda(executableName: string) {
   return (input: number) =>
     new Promise<number>((resolve) => {
       execFile(
-        `./projects/cuda/${executableName}`,
-        [input.toString()],
+        `./projects/gpu-rodinia/${executableName}`,
+        ["-s", input.toString()],
         (err, stdout, stderr) => {
-          resolve(parseInt(stdout.split("\n")[1].trim()))
+          resolve(parseFloat(stdout.split("\n")[1].trim()))
         }
       )
     })
