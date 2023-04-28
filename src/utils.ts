@@ -54,10 +54,10 @@ export function displayDiff(test: string, results: WrappedResult[]) {
   for (const result of results) {
     for (const [input, benchmark] of result.benchmarks) {
       console.log(
-        `[${input}] [A] ${result.name}: ${Math.round(benchmark.actualTime)}ms`
+        `[${input}] [A] ${result.name}: ${benchmark.actualTime.toFixed(2)}ms`
       )
       console.log(
-        `[${input}] [L] ${result.name}: ${Math.round(benchmark.localTime)}ms`
+        `[${input}] [L] ${result.name}: ${benchmark.localTime.toFixed(2)}ms`
       )
     }
   }
@@ -71,7 +71,7 @@ export function cuda(executableName: string) {
         `./projects/gpu-rodinia/${executableName}`,
         ["-s", input.toString()],
         (err, stdout, stderr) => {
-          resolve(parseFloat(stdout.split("\n")[1].trim()))
+          resolve(parseFloat(stdout.split("\n")[0].trim()))
         }
       )
     })
