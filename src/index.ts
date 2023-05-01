@@ -28,6 +28,7 @@ async function runBenchmarks() {
         ]
       ),
     },
+/*
     {
       test: "LUD",
       results: await wrap(
@@ -39,6 +40,7 @@ async function runBenchmarks() {
         ]
       ),
     },
+*/
     {
       test: "BFS",
       results: await wrap(
@@ -46,9 +48,11 @@ async function runBenchmarks() {
         [
           { name: "ecma", func: ecmaBfs },
           { name: "C/C++ wasm", func: wasmBfs },
+          { name: "Cuda", func: cuda("cuda/bfs/bfs.out") }
         ]
       ),
     },
+/*
     {
       test: "PageRank",
       results: await wrap(
@@ -69,6 +73,7 @@ async function runBenchmarks() {
         ]
       ),
     },
+*/
   ])
 }
 runBenchmarks()
