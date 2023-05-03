@@ -70,12 +70,16 @@ export function displayDiff(test: string, results: WrappedResult[]) {
   console.log("\n")
 }
 
-export function cuda(executableName: string) {
+export function cuda(
+  executableName: string,
+  preArg?: string,
+  ...postArgs: string[]
+) {
   return (input: number) =>
     new Promise<number>((resolve) => {
       execFile(
         `./projects/gpu-rodinia/${executableName}`,
-        ["-s", input.toString()],
+        [preArg, input.toString(), ...postArgs].filter(Boolean) as string[],
         (err, stdout, stderr) => {
           resolve(parseFloat(stdout.split("\n")[0].trim()))
         }
