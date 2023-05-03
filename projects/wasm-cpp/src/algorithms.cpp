@@ -31,15 +31,7 @@ extern "C"
 
 	int cppLud(int matrix_dim)
 	{
-		char temp[10];
-		sprintf(temp, "%d", matrix_dim);
-		// Combine argv with -a flag
-		char *argv[] = {" ", "-s", temp};
-
-		// Calculate argc from argv
-		int argc = sizeof(argv) / sizeof(argv[0]);
-
-		return lud(argc, (char **)argv);
+		return lud(matrix_dim);
 	}
 
 	int cppPageRank(int n /* , int iter, int thresh, int divisor */)

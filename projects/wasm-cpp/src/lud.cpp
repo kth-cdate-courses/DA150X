@@ -100,9 +100,9 @@ void lud_base(float *a, int size)
 	}
 }
 
-int lud(int argc, char **argv)
+int lud(int matrix_dim_arg)
 {
-	int matrix_dim = 32; // default matrix_dim
+	int matrix_dim = matrix_dim_arg; // default matrix_dim
 	int opt, option_index = 0, error = 0;
 	func_ret_t ret;
 	const char *input_file = NULL;
@@ -110,36 +110,36 @@ int lud(int argc, char **argv)
 	stopwatch sw;
 	int i;
 
-	while ((opt = getopt_long(argc, argv, ":vs:i:",
-							  long_options, &option_index)) != -1)
-	{
-		switch (opt)
+	/* 	while ((opt = getopt_long(argc, argv, ":vs:i:",
+								  long_options, &option_index)) != -1)
 		{
-		case 'v':
-			do_verify = 1;
-			break;
-		case 's':
-			matrix_dim = atoi(optarg);
-			break;
-		case '?':
-			fprintf(stderr, "invalid option\n");
-			error = 1;
-			break;
-		case ':':
-			fprintf(stderr, "missing argument\n");
-			error = 1;
-			break;
-		default:
-			error = 1;
-		}
-	}
+			switch (opt)
+			{
+			case 'v':
+				do_verify = 1;
+				break;
+			case 's':
+				matrix_dim = atoi(optarg);
+				break;
+			case '?':
+				fprintf(stderr, "invalid option\n");
+				error = 1;
+				break;
+			case ':':
+				fprintf(stderr, "missing argument\n");
+				error = 1;
+				break;
+			default:
+				error = 1;
+			}
+		} */
 	// printf("argv = %s, matrix_dim = %d", argv[0], matrix_dim);
 
-	if ((optind < argc) || (optind == 1) || error)
-	{
-		fprintf(stderr, "Usage: %s [-v] [-s matrix_size]\n", argv[0]);
-		exit(EXIT_FAILURE);
-	}
+	/* 	if ((optind < argc) || (optind == 1) || error)
+		{
+			fprintf(stderr, "Usage: %s [-v] [-s matrix_size]\n", argv[0]);
+			exit(EXIT_FAILURE);
+		} */
 
 	if (matrix_dim > 1)
 	{
@@ -173,26 +173,26 @@ int lud(int argc, char **argv)
 
 	if (matrix_dim == 1024)
 	{
-		for (i = 0; i < 100; ++i)
-		{
-			if (m[expected_row_indices[i] * matrix_dim + expected_col_indices[i]] != expected_values[i])
-			{
-				fprintf(stderr, "ERROR: value at index (%d,%d) = '%.*f' is different from the expected value '%.*f'\n",
-						expected_row_indices[i],
-						expected_col_indices[i],
-						// the 21 parameter prints enough significant decimal digits to obtain the same floating-point number
-						// when read back
-						21, m[expected_row_indices[i] * matrix_dim + expected_col_indices[i]],
-						21, expected_values[i]);
-				fprintf(stderr, "Received values:\n");
-				for (i = 0; i < 100; ++i)
+		/* 		for (i = 0; i < 100; ++i)
 				{
-					fprintf(stderr, "%.*f, ", 21, m[expected_row_indices[i] * matrix_dim + expected_col_indices[i]]);
-				}
-				fprintf(stderr, "\n");
-				exit(1);
-			}
-		}
+					if (m[expected_row_indices[i] * matrix_dim + expected_col_indices[i]] != expected_values[i])
+					{
+						fprintf(stderr, "ERROR: value at index (%d,%d) = '%.*f' is different from the expected value '%.*f'\n",
+								expected_row_indices[i],
+								expected_col_indices[i],
+								// the 21 parameter prints enough significant decimal digits to obtain the same floating-point number
+								// when read back
+								21, m[expected_row_indices[i] * matrix_dim + expected_col_indices[i]],
+								21, expected_values[i]);
+						fprintf(stderr, "Received values:\n");
+						for (i = 0; i < 100; ++i)
+						{
+							fprintf(stderr, "%.*f, ", 21, m[expected_row_indices[i] * matrix_dim + expected_col_indices[i]]);
+						}
+						fprintf(stderr, "\n");
+						exit(1);
+					}
+				} */
 	}
 	else
 	{

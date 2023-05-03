@@ -11,6 +11,10 @@ interface WrappedResult {
   benchmarks: [number, Benchmark][]
 }
 
+async function sleep() {
+  return new Promise((resolve) => setTimeout(resolve, 50))
+}
+
 export async function wrap(
   input: number[],
   tests: { name: string; func: (num: number) => Promise<number> | number }[]
@@ -21,11 +25,13 @@ export async function wrap(
     for (const num of input) {
       let innerResults: Benchmark[] = []
 
-      const AVERAGES = 10
+      const AVERAGES = 5
       for (let i = 0; i < AVERAGES; i++) {
         const start = performance.now()
         const localTime = await test.func(num)
         const actualTime = performance.now() - start
+        // We sleep to make sure there are no reminants of the previous tests
+        await sleep()
         innerResults.push({ actualTime, localTime })
       }
 

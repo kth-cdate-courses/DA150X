@@ -13,6 +13,6 @@ static int do_verify = 0;
 extern void lud_base(double *m, int matrix_dim);
 
 // Function signatures
-int lud(int argc, char **argv);
+int lud(int matrix_dim_arg);
 
 #endif
