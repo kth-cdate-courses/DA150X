@@ -23,27 +23,27 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////
 // Apply BFS on a Graph using CUDA
 ////////////////////////////////////////////////////////////////////////////////
-int BFSGraph(int argc, char **argv)
+int BFSGraph(int nodes)
 {
 	unsigned int expected_no_of_nodes = 3000000;
 	unsigned long int expected_total_cost = 26321966;
-	int no_of_nodes;
-	int verbose;
-	if (argc == 1)
-	{
-		no_of_nodes = NUM_NODES;
-		verbose = 0;
-	}
-	else if (argc == 2)
-	{
-		no_of_nodes = atoi(argv[1]);
-		verbose = 0;
-	}
-	else
-	{
-		no_of_nodes = atoi(argv[1]);
-		verbose = 1;
-	}
+	int no_of_nodes = nodes;
+	int verbose = 0;
+	/* 	if (argc == 1)
+		{
+			no_of_nodes = NUM_NODES;
+			verbose = 0;
+		}
+		else if (argc == 2)
+		{
+			no_of_nodes = atoi(argv[1]);
+			verbose = 0;
+		}
+		else
+		{
+			no_of_nodes = atoi(argv[1]);
+			verbose = 1;
+		} */
 
 	Node *h_graph_nodes;
 	bool *h_graph_mask;

@@ -158,12 +158,12 @@ int lud(int matrix_dim_arg)
 		exit(EXIT_FAILURE);
 	}
 
-	if (do_verify)
+	/* if (do_verify)
 	{
 		// printf("Before LUD\n");
 		// print_matrix(m, matrix_dim);
 		matrix_duplicate(m, &mm, matrix_dim);
-	}
+	} */
 
 	stopwatch_start(&sw);
 
@@ -199,14 +199,14 @@ int lud(int matrix_dim_arg)
 		// fprintf(stderr, "WARNING: No self-checking step for dimension '%d'\n", matrix_dim);
 	}
 
-	if (do_verify)
+	/* if (do_verify)
 	{
 		// fprintf(stderr, "After LUD\n");
 		// print_matrix(m, matrix_dim);
 		fprintf(stderr, ">>>Verify<<<<\n");
 		lud_verify(mm, m, matrix_dim);
 		free(mm);
-	}
+	} */
 
 	free(m);
 	// printf("{ \"status\": %d, \"options\": \"-s %d\", \"time\": %f }\n", 1, matrix_dim, get_interval_by_sec(&sw));

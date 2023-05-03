@@ -27,7 +27,7 @@ struct edge
 	unsigned weight;
 };
 
-int BFSGraph(int argc, char **argv);
+int BFSGraph(int nodes);
 void InitializeGraph(Node **, bool **, bool **, bool **, int **, int **, int);
 
 #endif // BFS_H

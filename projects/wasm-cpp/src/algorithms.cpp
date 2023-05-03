@@ -24,9 +24,7 @@ extern "C"
 
 	int cppBfs(int nodes)
 	{
-		char argv[10];
-		sprintf(argv, "%d", nodes);
-		return BFSGraph(1, (char **)&argv);
+		return BFSGraph(nodes);
 	}
 
 	int cppLud(int matrix_dim)
