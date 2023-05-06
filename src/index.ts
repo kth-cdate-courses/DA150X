@@ -7,6 +7,7 @@ import {
   trivial as ecmaTrivial,
   runLavaMD as ecmaLavaMD,
   runBackProp as ecmaBackProp,
+  runNeedle as ecmaNeedle,
 } from "da150x-ecma"
 import {
   add,
@@ -21,7 +22,7 @@ import {
 import { cuda, displayDiff, gather, wrap } from "./utils.js"
 async function runBenchmarks() {
   gather([
-    {
+    /* {
       test: "Trivial",
       results: await wrap(
         [0],
@@ -95,6 +96,18 @@ async function runBenchmarks() {
           {
             name: "C/C++ wasm",
             func: wasmBackProp,
+          },
+        ]
+      ),
+    }, */
+    {
+      test: "Dynamic programming",
+      results: await wrap(
+        [4096, 8192, 16384],
+        [
+          {
+            name: "ecma",
+            func: ecmaNeedle,
           },
         ]
       ),
