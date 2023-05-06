@@ -76,11 +76,11 @@ async function runBenchmarks() {
       results: await wrap(
         [4, 6, 8, 12],
         [
+          { name: "ecma", func: ecmaLavaMD },
           {
             name: "C/C++ wasm",
             func: wasmLavaMD,
           },
-          { name: "ecma", func: ecmaLavaMD },
         ]
       ),
     },
