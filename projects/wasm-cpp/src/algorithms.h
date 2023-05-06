@@ -5,6 +5,7 @@
 #include "./lud.h"
 #include "./pagerank.h"
 #include "./crc.h"
+#include "./lavamd.h"
 
 extern "C"
 {
@@ -14,5 +15,6 @@ extern "C"
 	int cppLud(int matrix_dim);
 	int cppPageRank(int n);
 	int cppCrc(int pageSize);
+	int cppLavaMD(int boxes);
 }
 #endif

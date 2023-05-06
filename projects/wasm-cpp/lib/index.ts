@@ -12,3 +12,4 @@ export const pageRank: (
   divisor?: number */
 ) => number = wasm_module._cppPageRank
 export const crc: (pageSize?: number) => number = wasm_module._cppCrc
+export const lavaMD: (boxes: number) => number = wasm_module._cppLavaMD

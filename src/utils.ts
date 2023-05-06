@@ -48,6 +48,8 @@ export async function wrap(
             0
           ) / AVERAGES,
       })
+
+      await sleep()
     }
 
     results.push({ name: test.name, benchmarks: [...benchmarks] })

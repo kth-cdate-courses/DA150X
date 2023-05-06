@@ -5,6 +5,7 @@ import {
   pageRank as ecmaPageRank,
   runCRC as ecmaCrc,
   trivial as ecmaTrivial,
+  runLavaMD as ecmaLavaMD,
 } from "da150x-ecma"
 import {
   add,
@@ -13,18 +14,18 @@ import {
   pageRank as wasmPageRank,
   crc as wasmCrc,
   trivial as wasmTrivial,
+  lavaMD as wasmLavaMD,
 } from "wasm"
 import { cuda, displayDiff, gather, wrap } from "./utils.js"
 async function runBenchmarks() {
   gather([
-    {
+    /* {
       test: "Trivial",
       results: await wrap(
         [0],
         [
           { name: "ecma", func: ecmaTrivial },
           { name: "C/C++ wasm", func: wasmTrivial },
-          { name: "External binary", func: cuda("trivial") },
         ]
       ),
     },
@@ -35,7 +36,6 @@ async function runBenchmarks() {
         [
           { name: "ecma", func: ecmaLudRun },
           { name: "C/C++ wasm", func: wasmLud },
-          { name: "Cuda", func: cuda("cuda/lud/cuda/lud_cuda") },
         ]
       ),
     },
@@ -66,6 +66,19 @@ async function runBenchmarks() {
         [
           { name: "ecma", func: ecmaCrc },
           { name: "C/C++ wasm", func: wasmCrc },
+        ]
+      ),
+    }, */
+    {
+      test: "Lava MD",
+      results: await wrap(
+        [4, 6, 8, 12],
+        [
+          {
+            name: "C/C++ wasm",
+            func: wasmLavaMD,
+          },
+          { name: "ecma", func: ecmaLavaMD },
         ]
       ),
     },

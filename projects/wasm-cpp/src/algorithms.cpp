@@ -59,4 +59,8 @@ extern "C"
 	{
 		return runCrc(pageSize, 1000);
 	}
+	int cppLavaMD(int boxes)
+	{
+		return runLavaMD(boxes);
+	}
 }
