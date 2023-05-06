@@ -6,6 +6,7 @@
 #include "./pagerank.h"
 #include "./crc.h"
 #include "./lavamd.h"
+#include "./facetrain.h"
 
 extern "C"
 {
@@ -16,5 +17,6 @@ extern "C"
 	int cppPageRank(int n);
 	int cppCrc(int pageSize);
 	int cppLavaMD(int boxes);
+	int cppBackprop(int layer_size);
 }
 #endif

@@ -63,4 +63,8 @@ extern "C"
 	{
 		return runLavaMD(boxes);
 	}
+	int cppBackprop(int layer_size)
+	{
+		return backprop_face(layer_size);
+	}
 }

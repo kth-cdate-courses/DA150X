@@ -16,11 +16,12 @@ import {
   crc as wasmCrc,
   trivial as wasmTrivial,
   lavaMD as wasmLavaMD,
+  backprop as wasmBackProp,
 } from "wasm"
 import { cuda, displayDiff, gather, wrap } from "./utils.js"
 async function runBenchmarks() {
   gather([
-    /* {
+    {
       test: "Trivial",
       results: await wrap(
         [0],
@@ -71,8 +72,8 @@ async function runBenchmarks() {
           { name: "C/C++ wasm", func: wasmCrc },
         ]
       ),
-    }, */
-    /* {
+    },
+    {
       test: "Lava MD",
       results: await wrap(
         [4, 6, 8, 12],
@@ -84,12 +85,18 @@ async function runBenchmarks() {
           },
         ]
       ),
-    }, */
+    },
     {
-      test: "Back Prop",
+      test: "Backprop",
       results: await wrap(
         [1048576, 2097152, 4194304, 8388608],
-        [{ name: "ecma", func: ecmaBackProp }]
+        [
+          { name: "ecma", func: ecmaBackProp },
+          {
+            name: "C/C++ wasm",
+            func: wasmBackProp,
+          },
+        ]
       ),
     },
   ])
