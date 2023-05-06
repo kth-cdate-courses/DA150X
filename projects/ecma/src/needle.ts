@@ -241,7 +241,7 @@ export function runNeedle(
     nb_possible_items: 10,
     print_results: false,
     print_intermediary_results: false,
-    use_parallelizable_version: true,
+    use_parallelizable_version: false,
   }
 
   if (dimensions === undefined) {
