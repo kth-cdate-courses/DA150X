@@ -67,4 +67,8 @@ extern "C"
 	{
 		return backprop_face(layer_size);
 	}
+	int cppNeedle(int dimension)
+	{
+		return dp_needle(dimension);
+	}
 }

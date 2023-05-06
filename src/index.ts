@@ -18,11 +18,12 @@ import {
   trivial as wasmTrivial,
   lavaMD as wasmLavaMD,
   backprop as wasmBackProp,
+  needle as wasmNeedle,
 } from "wasm"
 import { cuda, displayDiff, gather, wrap } from "./utils.js"
 async function runBenchmarks() {
   gather([
-    /* {
+    {
       test: "Trivial",
       results: await wrap(
         [0],
@@ -99,15 +100,19 @@ async function runBenchmarks() {
           },
         ]
       ),
-    }, */
+    },
     {
       test: "Dynamic programming",
       results: await wrap(
-        [4096, 8192, 16384],
+        [4096, 8192, 12288],
         [
           {
             name: "ecma",
             func: ecmaNeedle,
+          },
+          {
+            name: "C/C++ wasm",
+            func: wasmNeedle,
           },
         ]
       ),

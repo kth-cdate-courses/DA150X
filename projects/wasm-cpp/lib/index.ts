@@ -9,3 +9,4 @@ export const pageRank: (n?: number) => number = wasm_module._cppPageRank
 export const crc: (pageSize?: number) => number = wasm_module._cppCrc
 export const lavaMD: (boxes: number) => number = wasm_module._cppLavaMD
 export const backprop: (boxes: number) => number = wasm_module._cppBackprop
+export const needle: (dimension: number) => number = wasm_module._cppNeedle

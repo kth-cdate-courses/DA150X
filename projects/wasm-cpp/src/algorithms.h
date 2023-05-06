@@ -7,6 +7,7 @@
 #include "./crc.h"
 #include "./lavamd.h"
 #include "./facetrain.h"
+#include "./needle.h"
 
 extern "C"
 {
@@ -18,5 +19,6 @@ extern "C"
 	int cppCrc(int pageSize);
 	int cppLavaMD(int boxes);
 	int cppBackprop(int layer_size);
+	int cppNeedle(int dimension);
 }
 #endif

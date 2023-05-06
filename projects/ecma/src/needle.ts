@@ -313,8 +313,6 @@ export function runNeedle(
   var aligned_index_1 = aligned_seq_size - 1
   var aligned_index_2 = aligned_seq_size - 1
 
-  console.log("Max rows: " + max_rows, "Max cols: " + max_cols)
-
   for (let i = max_rows - 1, j = max_cols - 1; !(i == 0 && j == 0); ) {
     if (i > 0 && j > 0) {
       var nw =
@@ -384,11 +382,11 @@ export function runNeedle(
     )
   } */
 
-  console.log("The total time spent is " + (t2 - t1) / 1000 + " seconds\n")
+  // console.log("The total time spent is " + (t2 - t1) / 1000 + " seconds\n")
   /* return {
     status: 1,
     options: "runNeedle(" + [dimensions, penalty].join(",") + ")",
     time: (t2 - t1) / 1000,
   } */
-  return (t2 - t1) / 1000
+  return t2 - t1
 }
