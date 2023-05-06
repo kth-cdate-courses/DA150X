@@ -6,6 +6,7 @@ import {
   runCRC as ecmaCrc,
   trivial as ecmaTrivial,
   runLavaMD as ecmaLavaMD,
+  runBackProp as ecmaBackProp,
 } from "da150x-ecma"
 import {
   add,
@@ -71,7 +72,7 @@ async function runBenchmarks() {
         ]
       ),
     }, */
-    {
+    /* {
       test: "Lava MD",
       results: await wrap(
         [4, 6, 8, 12],
@@ -82,6 +83,13 @@ async function runBenchmarks() {
             func: wasmLavaMD,
           },
         ]
+      ),
+    }, */
+    {
+      test: "Back Prop",
+      results: await wrap(
+        [1048576, 2097152, 4194304, 8388608],
+        [{ name: "ecma", func: ecmaBackProp }]
       ),
     },
   ])

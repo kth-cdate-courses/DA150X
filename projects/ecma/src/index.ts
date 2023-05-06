@@ -3,6 +3,7 @@ export { bfs } from "./bfs.js"
 export { pageRank } from "./pagerank.js"
 export { runCRC } from "./crc.js"
 export { runLavaMD } from "./lavamd.js"
+export { runBackProp } from "./backprop.js"
 
 export function trivial(a: number): typeof a {
   return a
