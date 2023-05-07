@@ -137,7 +137,6 @@ function bpnn_train_kernel(net: Net) {
     net.hidden_weights,
     net.hidden_prev_weights
   )
-  console.log("1")
   bpnn_adjust_weights(
     net.hidden_delta,
     hid,
@@ -146,7 +145,6 @@ function bpnn_train_kernel(net: Net) {
     net.input_weights,
     net.input_prev_weights
   )
-  console.log("2")
 }
 
 function bpnn_layerforward(
@@ -259,7 +257,7 @@ function backprop_face(layer_size: number) {
   bpnn_train_kernel(net)
   time1 = performance.now()
 
-  if (layer_size === expected_layer_size) {
+  /* if (layer_size === expected_layer_size) {
     var sum_of_hidden_weights = 0
     for (var i = 1; i <= net.hidden_n; ++i) {
       for (var j = 1; j <= net.output_n; ++j) {
@@ -288,11 +286,11 @@ function backprop_face(layer_size: number) {
     console.log(
       "WARNING: no self-checking for input size of '" + layer_size + "'"
     )
-  }
+  } */
 
   //console.log("Output: " + net.output_units[1].toFixed(4) + "\t" + net.output_delta[1].toFixed(4));
   net = null
-  console.log("Computation time: " + (time1 - time0) / 1000 + " s\n")
+  /* console.log("Computation time: " + (time1 - time0) / 1000 + " s\n") */
   return time1 - time0
   /*   return {
     status: 1,
