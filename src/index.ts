@@ -23,6 +23,7 @@ import {
 import { cuda, displayDiff, gather, wrap } from "./utils.js"
 async function runBenchmarks() {
   gather([
+    
     {
       test: "Trivial",
       results: await wrap(
@@ -33,6 +34,7 @@ async function runBenchmarks() {
         ]
       ),
     },
+    /*
     {
       test: "LUD",
       results: await wrap(
@@ -51,7 +53,7 @@ async function runBenchmarks() {
         [
           { name: "ecma", func: ecmaBfs },
           { name: "C/C++ wasm", func: wasmBfs },
-          { name: "Cuda", func: cuda("cuda/bfs/bfs.out") },
+          { name: "Cuda Kernel", func: cuda("cuda/bfs-local/bfs.out") }
         ]
       ),
     },
@@ -74,7 +76,8 @@ async function runBenchmarks() {
           { name: "C/C++ wasm", func: wasmCrc },
         ]
       ),
-    },
+    },*/
+    /*
     {
       test: "Lava MD",
       results: await wrap(
@@ -85,9 +88,12 @@ async function runBenchmarks() {
             name: "C/C++ wasm",
             func: wasmLavaMD,
           },
+          { name: "Cuda", func: cuda("cuda/lavaMD/lavaMD", "-boxes1d")}
         ]
       ),
     },
+    */
+   /*
     {
       test: "Backprop",
       results: await wrap(
@@ -98,9 +104,12 @@ async function runBenchmarks() {
             name: "C/C++ wasm",
             func: wasmBackProp,
           },
+          { name: "Cuda", func: cuda("cuda/backprop/backprop") }
         ]
       ),
-    },
+    },*/
+
+   
     {
       test: "Dynamic programming",
       results: await wrap(
@@ -114,9 +123,15 @@ async function runBenchmarks() {
             name: "C/C++ wasm",
             func: wasmNeedle,
           },
+          { name: "Cuda", func: cuda("cuda/nw/needle", "", "1") }
         ]
       ),
     },
+    
   ])
 }
 runBenchmarks()
+
+
+
+    
